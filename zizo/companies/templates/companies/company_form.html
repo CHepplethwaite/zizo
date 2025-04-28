@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>{% if company %}Update {{ company.name }}{% else %}Create New Company{% endif %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">
+            {% if company %}Update{% else %}Create{% endif %} Company
+        </button>
+    </form>
+</div>
+{% endblock %}

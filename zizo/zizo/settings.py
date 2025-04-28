@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,14 +26,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',  # Custom app for user accounts
-    'applications',  # Custom app for application job applications
-    'companies',  # Custom app for companies
-    'dashboard',  # Custom app for the dashboard
-    'jobs',  # Custom app for job listings
-    'notifications',  # Custom app for notifications
-    'payments',  # Custom app for payments
-    'search',  # Custom app for search functionality
+    'accounts',
+    'applications',
+    'companies',
+    'core',
+    'dashboard',
+    'jobs', 
+    'notifications',
+    'payments', 
+    'search',  
 ]
 
 MIDDLEWARE = [
@@ -48,9 +50,9 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'zizo.urls'
 
 TEMPLATES = [
-    {
+    { 
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,7 +114,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'), 
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+LOGIN_REDIRECT_URL = 'dashboard/'
+
+LOGOUT_REDIRECT_URL = 'home/'
