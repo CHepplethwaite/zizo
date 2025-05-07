@@ -1,35 +1,40 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Your Logo</a>
+        {% load static %}
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'core/images/zizo-logo.svg' %}" alt="Zizo Jobs" style="max-height: 30px;">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <!-- Add more navigation items here -->
-            </ul>
-            
+
             <ul class="navbar-nav ms-auto">
-                {% if user.is_authenticated %}
-                    {% if user.is_staff %}
-                    <li class="nav-item">
-                        <a class="nav-link text-warning" href="{% url 'admin:index' %}">
-                            <i class="bi bi-speedometer"></i> Admin
-                        </a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
-                    </li>
-                {% endif %}
+                <li class="nav-item">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="bi bi-briefcase-fill text-warning" style="font-size: 1.5rem;"></i>
+                        <a class="nav-link" href="#">For Recruiters</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="myJobsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        My Jobs
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="myJobsDropdown">
+                        <li><a class="dropdown-item" href="#">My Zizo</a></li>
+                        <li><a class="dropdown-item" href="#">Saved Jobs</a></li>
+                        <li><a class="dropdown-item" href="#">Applied Jobs</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="signInDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sign in
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="signInDropdown">
+                        <li><a class="dropdown-item" href="#">Sign in</a></li>
+                        <li><a class="dropdown-item" href="#">Register</a></li>
+                        <li><a class="dropdown-item" href="#">Recruiter Sign in</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
