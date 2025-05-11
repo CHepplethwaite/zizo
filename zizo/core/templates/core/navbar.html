@@ -8,34 +8,111 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <div class="d-flex flex-column align-items-center">
-                        <i class="bi bi-briefcase-fill text-warning" style="font-size: 1.5rem;"></i>
-                        <a class="nav-link" href="#">For Recruiters</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="myJobsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        My Jobs
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="myJobsDropdown">
-                        <li><a class="dropdown-item" href="#">My Zizo</a></li>
-                        <li><a class="dropdown-item" href="#">Saved Jobs</a></li>
-                        <li><a class="dropdown-item" href="#">Applied Jobs</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="signInDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Sign in
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="signInDropdown">
-                        <li><a class="dropdown-item" href="#">Sign in</a></li>
-                        <li><a class="dropdown-item" href="#">Register</a></li>
-                        <li><a class="dropdown-item" href="#">Recruiter Sign in</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-briefcase-fill text-warning" style="font-size: 1.5rem; margin-right: 8px;"></i>
+                    <a class="nav-link" href="#">For Recruiters</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="myJobsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-folder text-light" style="font-size: 1.2rem; margin-right: 8px;"></i>
+                    My Jobs
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="myJobsDropdown">
+                    <li><a class="dropdown-item" href="#">My Zizo</a></li>
+                    <li><a class="dropdown-item" href="#">Saved Jobs</a></li>
+                    <li><a class="dropdown-item" href="#">Applied Jobs</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="signInDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-circle text-light" style="font-size: 1.2rem; margin-right: 8px;"></i>
+                    Sign in
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="signInDropdown">
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#signInModal">Sign in</a></li>
+                    <li><a class="dropdown-item" href="#">Register</a></li>
+                    <li><a class="dropdown-item" href="#">Recruiter Sign in</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </nav>
+
+<!-- Sign In Modal -->
+<div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signInModalLabel">Welcome back!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Log in now to find the right job with the right salary.</p>
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                    </div>
+                    <div class="mb-3 position-relative">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <!-- Eye icon inside the password input field -->
+                        <i id="eyeIcon" class="bi bi-eye position-absolute" style="top: 70%; right: 10px; transform: translateY(-50%); cursor: pointer;"></i>
+
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <!-- Forgot password link on the right of the eye icon -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="stayLoggedIn">
+                            <label class="form-check-label" for="stayLoggedIn">Stay logged in</label>
+                        </div>
+                        <a href="#" class="text-decoration-none">Forgot Password?</a>
+                    </div>
+                    <!-- Log In Button -->
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary w-100">Log In</button>
+                    </div>
+                    <!-- Sign in with Google button -->
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-danger w-100">
+                            <i class="bi bi-google"></i> Sign in with Google
+                        </button>
+                    </div>
+                    <div class="mt-3">
+                        <small>By clicking above you agree to our <a href="#" class="text-decoration-none">Terms of Use</a>.</small>
+                        <br>
+                        <small>Read our full <a href="#" class="text-decoration-none">Data Protection Policy</a> here.</small>
+                    </div>
+                    <div class="mt-3">
+                        <small>Don't have an account? <a href="#" class="text-decoration-none">Sign up here</a></small>
+                    </div>
+                    <div class="mt-3">
+                        <small>Are you a recruiter? <a href="#" class="text-decoration-none">Login here</a></small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Show password functionality with eye icon
+    document.getElementById('eyeIcon').addEventListener('click', function () {
+        var passwordField = document.getElementById('password');
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';  // Show password
+            this.classList.remove('bi-eye');
+            this.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';  // Hide password
+            this.classList.remove('bi-eye-slash');
+            this.classList.add('bi-eye');
+        }
+    });
+</script>
